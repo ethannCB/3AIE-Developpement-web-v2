@@ -14,6 +14,8 @@ $ville = $_GET['ville'] ?? '';
 $req = $bdd->prepare('SELECT * FROM meteo WHERE ville = ?');
 $req->execute([$ville]);
 $donnees = $req->fetch(PDO::FETCH_ASSOC);
+
+
 if ($donnees) {
     echo json_encode($donnees);
 } else {
